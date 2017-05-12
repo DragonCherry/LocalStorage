@@ -27,7 +27,7 @@ open class LocalStorage {
     fileprivate var directoryType: FileManager.SearchPathDirectory
     fileprivate var dictionary: NSMutableDictionary!
     fileprivate var fullPath: String? {
-        if let directory = NSSearchPathForDirectoriesInDomains(directoryType, .userDomainMask, true).first as? NSString {
+        if let directory = NSSearchPathForDirectoriesInDomains(directoryType, .userDomainMask, true).first as NSString? {
             return directory.appendingPathExtension(localStorageFile)
         } else {
             loge("Failed to create path at library directory.")
@@ -141,7 +141,6 @@ open class LocalStorage {
     }
     
     // MARK: - Archiving Utility
-    @discardableResult
     fileprivate func loadArchive() {
         guard let fullPath = self.fullPath else {
             return
