@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import LocalStorage
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        SharedPreference.default.save("TEST_STRING", forKey: "MY_STRING_KEY")
+        SharedPreference.default.save(["TEST_KEY": "TEST_VALUE"], forKey: "MY_DICTIONARY_KEY")
+        SharedPreference.default.save([100, 10, 1], forKey: "MY_ARRAY_KEY")
+        
+        print("\(SharedPreference.default.load("MY_STRING_KEY").debugDescription)")
+        print("\(SharedPreference.default.load("MY_DICTIONARY_KEY").debugDescription)")
+        print("\(SharedPreference.default.load("MY_ARRAY_KEY").debugDescription)")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 
+
+class SharedPreference {
+    static let `default` = { return LocalStorage(fileName: "preference.db", directoryType: .libraryDirectory) }()
+    private init() {}
+}
