@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LocalStorage'
-  s.version          = '1.0.0'
+  s.version          = '1.0.2'
   s.summary          = 'A simple utility class for saving values at local storage.'
 
 # This description is used to generate tags and improve search results.
