@@ -1,5 +1,5 @@
 PODS:
-  - LocalStorage (1.0.0):
+  - LocalStorage (1.0.3):
     - OptionalTypes
     - SwiftKeychainWrapper
     - TinyLog
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  LocalStorage: 84cb52d816d5631f27f1c7cb868d3d0db1bed161
+  LocalStorage: 5138a8901593969a1b68bc39d2a6a7aa746b68b5
   OptionalTypes: a51c1b33edaf7e848d506c66f37bd8eece408092
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   TinyLog: 6c3ecbc348d10dc242ebb506f684fc9ae6aff533
