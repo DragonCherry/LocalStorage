@@ -145,7 +145,7 @@ open class LocalStorage {
         guard let fullPath = self.fullPath else {
             return
         }
-        if let dictionary = NSKeyedUnarchiver.unarchive(fullPath, key: kLocalStorageKey) {
+        if let dictionary = NSKeyedUnarchiver.unarchive(fullPath, key: kLocalStorageKey) as? NSMutableDictionary {
             self.dictionary = dictionary
         } else {
             // create new dictionary for first use
