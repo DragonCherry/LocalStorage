@@ -11,16 +11,12 @@ import Foundation
 extension NSKeyedUnarchiver {
     
     @discardableResult
-    public class func unarchive(_ path: String, key: String) -> NSMutableDictionary? {
+    public class func unarchive(_ path: String, key: String) -> Any? {
         if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
-            let unarchiver: NSKeyedUnarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            guard let unarchivedObject = unarchiver.decodeObject(forKey: key) else {
-                return nil
-            }
-            if let dictionary: NSMutableDictionary = unarchivedObject as? NSMutableDictionary {
-                return dictionary
-            }
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            return unarchiver.decodeObject(forKey: key)
+        } else {
+            return nil
         }
-        return nil
     }
 }

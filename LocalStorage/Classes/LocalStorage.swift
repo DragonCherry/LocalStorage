@@ -49,7 +49,7 @@ open class LocalStorage {
     // MARK: - APIs
     
     /// returns all keys in LocalStorage
-    open var allKeys: [Any]? { return self.dictionary.allKeys }
+    open var allKeys: [Any]? { return dictionary.allKeys }
     
     open func load(_ key: String, isInKeychain: Bool = false) -> Any? {
         
@@ -59,7 +59,7 @@ open class LocalStorage {
             
             let objectFromDocument = synchronizedDictionary.object(forKey: key)
             
-            if Bool(dictionary!.value(forKey: kLocalStorageKeychainSyncStatus)) {
+            if Bool(dictionary.value(forKey: kLocalStorageKeychainSyncStatus)) {
                 
                 // synchronized successfully on last synchronization
                 if let syncDict = KeychainWrapper.standard.object(forKey: kLocalStorageKeychainSync) as? NSMutableDictionary {
@@ -83,7 +83,7 @@ open class LocalStorage {
         } else {
             
             // target from shared dictionary
-            target = self.dictionary!.value(forKey: key) as Any?
+            target = dictionary.value(forKey: key)
         }
         
         return target
@@ -145,7 +145,7 @@ open class LocalStorage {
         guard let fullPath = self.fullPath else {
             return
         }
-        if let dictionary = NSKeyedUnarchiver.unarchive(fullPath, key: kLocalStorageKey) {
+        if let dictionary = NSKeyedUnarchiver.unarchive(fullPath, key: kLocalStorageKey) as? NSMutableDictionary {
             self.dictionary = dictionary
         } else {
             // create new dictionary for first use

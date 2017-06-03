@@ -1,0 +1,25 @@
+PODS:
+  - LocalStorage (1.0.3):
+    - OptionalTypes
+    - SwiftKeychainWrapper
+    - TinyLog
+  - OptionalTypes (1.0.3)
+  - SwiftKeychainWrapper (3.0.1)
+  - TinyLog (1.0.1)
+
+DEPENDENCIES:
+  - LocalStorage (from `../`)
+
+EXTERNAL SOURCES:
+  LocalStorage:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LocalStorage: 5138a8901593969a1b68bc39d2a6a7aa746b68b5
+  OptionalTypes: a51c1b33edaf7e848d506c66f37bd8eece408092
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  TinyLog: 6c3ecbc348d10dc242ebb506f684fc9ae6aff533
+
+PODFILE CHECKSUM: e8a1c8697862f09c31a1d6892284ab05fade8e70
+
+COCOAPODS: 1.2.1
